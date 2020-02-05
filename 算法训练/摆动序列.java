@@ -2,63 +2,50 @@ package AlgorithmTrainning;
 
 import java.util.Scanner;
 
-
-public class 摆动序列 {
-	public static int [] v = new int [30];
-	public static int [] value = new int [30];
-	public static int n,ans=0;
-	public static void main(String[] args) {
-		Scanner sc =new Scanner(System.in);
-		n=sc.nextInt();
-		dfs(1);
-		System.out.println(ans-n);
+public class 摆动序列{
+	static int[] value;//存放序列值
+	static int[] isfind;//标记遍历过的点（用1 表示）
+	static int sum=0;
+	public static int k;
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		k=sc.nextInt();//序列长度[1,k]
+		value=new int[k];
+		isfind=new int[k+1];
+		
+		dfs(0);
+		System.out.println(sum);
 	}
-	public static void dfs(int x){
-	    if(x>n) {System.out.println();return ;}
-	    if(x==1||x==2){             //初始长度为1或者2时比较特殊 
-	        for(int i=1;i<=n;i++){
-	            if(v[i]==0){
-	                value[x]=i;
-	                System.out.print(x);
-	                v[i]=1;
-	                ans++;
-	
-	                dfs(x+1);
-	                value[x]=0;     //每次记得还原回来就行了 
-	                v[i]=0;
-	            }
-	            System.out.println();
-	        }
-	    }
-	    else {
-	        if(value[x-1]>value[x-2]){  //下面分别是两种情况 
-	            for(int i=1;i<value[x-2];i++){
-	                if(v[i]==0){
-	                    ans++;
-	                    value[x]=i;
-	                    v[i]=1;
-	                    dfs(x+1);
-	                    value[x]=0;
-	                    v[i]=0;
-	                }
-	            }
-	        }
-	        else if(value[x-1]<value[x-2]){
-	            for(int i=value[x-2];i<=n;i++){
-	                if(v[i]==0){
-	                    ans++;
-	                    value[x]=i;
-	                    v[i]=1;
-	                    dfs(x+1);
-	                    value[x]=0;
-	                    v[i]=0;
-	                }
-	            }
-	        }
-	    }
-	}
-
 	
 
+	
+	public static void dfs(int n)
+	{
+
+		if(n>1)
+		{
+			if(n==2)
+				sum+=1;
+			else if((value[n-2]-value[n-3])*(value[n-1]-value[n-3])<0)
+				sum+=1;
+			else
+				return;
+		}
+		
+
+		for(int i=1;i<=k;i++)
+		{
+
+			if(isfind[i]==0)
+			{
+				value[n]=i;//找到i未遍历，将其存放在序列的第n个值
+				isfind[i]=1;//找到元素就置1
+				dfs(n+1);
+				value[n]=0;
+				isfind[i]=0;
+			}
+		}
+
+	}
 }
-
