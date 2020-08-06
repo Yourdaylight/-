@@ -1,4 +1,4 @@
-package BasicPractice;
+
 import java.util.*;
 
 public class 矩形面积交 {

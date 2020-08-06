@@ -1,5 +1,5 @@
 import java.util.*;
-public class Main {
+public class 一元三次方程求解 {
     static  double a,b,c,d;
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);

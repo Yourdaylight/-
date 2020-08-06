@@ -1,4 +1,4 @@
-package BasicPractice;
+
 import java.util.*;
 public class ÊýµÄ¶Á·¨ {
 	public static void main(String[] args)

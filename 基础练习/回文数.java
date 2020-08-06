@@ -1,4 +1,3 @@
-package BasicPractice;
 
 public class »ØÎÄÊı {
 	

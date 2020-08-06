@@ -1,4 +1,4 @@
-package BasicPractice;
+
 //回文数，且各位数字之和等于输入
 import java.util.Scanner;
 

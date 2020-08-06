@@ -1,4 +1,4 @@
-package BasicPractice;
+
 import java.math.BigDecimal;
 import java.util.Scanner;
 public class 高精度加法 {

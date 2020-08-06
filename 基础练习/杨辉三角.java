@@ -1,4 +1,4 @@
-package BasicPractice;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 public class Ñî»ÔÈı½Ç {
